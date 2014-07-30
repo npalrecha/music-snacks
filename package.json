@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^6.2.1"
+    "hapi": "^6.2.1",
+    "hapi-mongodb": "^2.2.0"
   }
 }
