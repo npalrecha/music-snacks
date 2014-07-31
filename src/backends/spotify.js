@@ -1,7 +1,13 @@
-// insert spotify api functionality
+module.exports = (function() {
+    var self = {};
 
-function getPlaylist(id) {
-}
+    self.getPlaylist = function getPlaylist(id, cb) {
+        // TODO: implement
+    };
 
-function getTrack(artist, title) {
-}
+    self.getTrack = function getTrack(artist, title, cb) {
+        // TODO: implement
+    };
+
+    return self;
+}());
