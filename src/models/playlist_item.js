@@ -1,13 +1,14 @@
-var snax_playlist = function(args) {
+var playlist_item = function(args) {
     args = args || {};
 
     var self = {
         artist: args.artist || '',
-        album: args.album || '',
         title: args.title || '',
         duration: args.duration
     };
+
+    return self;
 };
 
-module.exports = snax_playlist;
+module.exports = playlist_item;
 
