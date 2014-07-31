@@ -32,6 +32,26 @@ server.route({
         }
     }
 });
+// file upload
+server.route({
+    method: 'POST',
+    path: '/upload',
+    config: {
+        payload:{
+            maxBytes: 1048576*2, // 1048576 is 1MB
+            parse: true,
+            output: 'stream'
+        },
+        handler: function(request, resp) {
+            var fs = require('fs');
+            var itunes = require('./src/backends/itunes');
+            var playlist_name = request.payload.playlist.hapi.filename;
+            var playlist_data = request.payload.playlist.read();
+            itunes.parse_playlist(playlist_name, playlist_data);
+            resp('GVT playlist_name, playlist_data:' + playlist_name + playlist_data);
+        }
+    },
+});
 
 // Start the server
 server.start(function() {
