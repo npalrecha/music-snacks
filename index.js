@@ -8,9 +8,17 @@ var dbOpts = {
     }
 };
 
+var hapiOpts = {
+    "views": {
+        "engines": {
+            "jade": require("jade")
+        },
+        "path": "./public"
+    }
+};
 
 // Create a server with a host and port
-var server = new Hapi.Server('localhost', 8000);
+var server = new Hapi.Server('localhost', 8000, hapiOpts);
 
 server.pack.register({
     plugin: require('hapi-mongodb'),
@@ -51,6 +59,25 @@ server.route({
             resp('GVT playlist_name, playlist_data:' + playlist_name + playlist_data);
         }
     },
+});
+
+server.route({
+    method: 'GET',
+    path: '/',
+    handler: function(request, reply) {
+        return reply.view("index", {
+        });
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/snax/{id}',
+    handler: function(request, reply) {
+        return reply.view("playlist", {
+            id: request.query.id
+        });
+    }
 });
 
 // Start the server

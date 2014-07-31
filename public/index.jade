@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Beats Music
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="description", content="")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="http://stud01.dev.nyc1.beats:4201/css/studio.css")
+  body
+    div.small-9.small-centered.column.text-center
+      h1 MUSICOUP
+      h5 Set your playlists free
+      hr
+      label Import a Playlist from Beats Music, Spotify, Rdio, or iTunes
+      input(type="text", placeholder="Enter playlist URL")
+      a.black.button Import
+      label Or upload an .m3u
+      div.input-with-thumb.active
+        form(action="/upload", method="post", enctype="multipart/form-data")
+          input(type="file", value="playlist")
+          input(type="submit", value="Upload")
