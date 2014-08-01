@@ -13,8 +13,9 @@ html
       h5 Set your playlists free
       hr
       label Import a Playlist from Beats Music, Spotify, Rdio, or iTunes
-      input(type="text", placeholder="Enter playlist URL")
-      a.black.button Import
+      form(action="/get_playlist", method="post")
+        input(type="url", placeholder="Enter playlist URL")
+        button.black.button Import
       label Or upload an .m3u
       div.input-with-thumb.active
         form(action="/upload", method="post", enctype="multipart/form-data")

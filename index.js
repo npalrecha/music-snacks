@@ -74,7 +74,7 @@ server.route({
     method: 'GET',
     path: '/snax/{id}',
     handler: function(request, reply) {
-        return reply.view("playlist", {
+        return reply.view("build_playlist", {
             id: request.query.id
         });
     }
