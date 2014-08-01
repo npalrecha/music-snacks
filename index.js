@@ -99,6 +99,25 @@ server.route({
     }
 });
 
+server.route({
+    method: 'GET',
+    path: '/',
+    handler: function(request, reply) {
+        return reply.view("index", {
+        });
+    }
+});
+
+server.route({
+    method: 'GET',
+    path: '/snax/{id}',
+    handler: function(request, reply) {
+        return reply.view("playlist", {
+            id: request.query.id
+        });
+    }
+});
+
 // Start the server
 server.start(function() {
     console.log('Server started at: ' + server.info.uri);
